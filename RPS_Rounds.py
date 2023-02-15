@@ -6,7 +6,9 @@ def rounds():
     while True:
         error = "Please press <enter> or enter an integer more than 0"
         response = input("How many rounds do you want to play? ")
-        if response.isdigit() and int(response) > 0:
+        if response == "":
+                return response
+        elif response.isdigit() and int(response) > 0 or response == "":
             return int(response)
             
         print(error)
@@ -25,6 +27,8 @@ while True:
         break
     print(heading)
     chosen = input(' Please choose Rock, paper, scissors or 000 to end : ')
+    print()
+    print(f"You chose {chosen}")
     if chosen == "000":
         break
 
