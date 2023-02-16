@@ -37,7 +37,9 @@ while True:
         break
     print(heading)
     chosen = user_choice(' Please choose Rock, paper, scissors or 000 to end : ', "Please enter rock, paper or scissors", valid)
- 
+    print()
+    print(f'You chose {chosen}')
+    print()
     if chosen == "000":
         break
 
