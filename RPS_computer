@@ -1,0 +1,9 @@
+import random
+def computer():
+    valid = ['rock', 'paper', 'scissors']
+    for item in range(1, 10):
+        choice = random.choice(valid)
+        print(choice)
+        
+computer()
+    
