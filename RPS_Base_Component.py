@@ -22,7 +22,7 @@ def instructions(question):
             print("*** Have fun***")
             print()
             break
-        elif yes_no == "yes" or yes_no == "n":
+        elif yes_no == "yes" or yes_no == "y":
             break
         else:
             print(" Please enter yes or no ")
@@ -48,6 +48,7 @@ def user_choice(question, error , valid):
                     return item
             else:
                 print(error)
+                print()
 
 def compare(computer1, chosen1):
     global win, loss, draw
@@ -115,17 +116,18 @@ while True:
     
     elif (round_num + 1) <= final_round:
         round_num += 1
-        heading = 'Round #{} out of {} has begun'.format(round_num, final_round)
+        heading = '==== Round #{} out of {} has begun ===='.format(round_num, final_round)
         print()
     
     else:
         break
 
     print(heading)
-    chosen = user_choice(' Please choose Rock, paper, scissors or 000 to end : ', "Please enter rock, paper or scissors", valid)
+    print()
+    chosen = user_choice(' Please choose Rock, paper, scissors or 000 to end : ', " Please enter rock, paper or scissors ", valid)
     print()
     print(f'You chose {chosen}')
-    print()
+    
     computer = random.choice(valid[: -1])
     if chosen != "000":
         print(f"Computer choice : {computer}")
@@ -135,9 +137,10 @@ while True:
 
     if chosen == "000":
         break
-win_percentage = win / round_num * 100
-loss_percentage = loss / round_num * 100
-draw_percentage = draw / round_num * 100
-print(f"Results: Win - {win} - Percentage - {win_percentage:.2f}% | Draw - {draw:.2f} - Percentage - {draw_percentage:.2f}% | Loss - {loss} - Percentage {loss_percentage}5")
+win_percentage = round(win / round_num * 100, 2)
+loss_percentage = round(loss / round_num * 100, 2)
+draw_percentage = round(draw / round_num * 100, 2)
+print()
+print(f"Results: Win - {win} - Percentage - {win_percentage}% | Draw - {draw} - Percentage - {draw_percentage}% | Loss - {loss} - Percentage {loss_percentage}%")
 print()
 print("Thank you for playing")            
