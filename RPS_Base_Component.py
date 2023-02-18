@@ -1,4 +1,32 @@
 import random
+def instructions(question):
+    
+    while True:
+        yes_no = input(question).lower()
+        if yes_no == "no" or yes_no == "n":
+            print("**** How to Play ****")
+            print("Choose either a number of rounds or press <enter> for Continuous mode")
+            print()
+            print("Then for each round, choose from rock / paper / scissors or 000 to quit")
+            print()
+            print('You can type r/p/s/0 if you do not want to type the entire word  ')
+            print()
+            print("The rules are...)")
+            print()
+            print("Rock beats scissor")
+            print()
+            print("Scissors beats paper")
+            print()
+            print("Paper beats rock")
+            print()
+            print("*** Have fun***")
+            print()
+            break
+        elif yes_no == "yes" or yes_no == "n":
+            break
+        else:
+            print(" Please enter yes or no ")
+            
 def rounds():
     
     while True:
@@ -26,15 +54,15 @@ def compare(computer1, chosen1):
     statement = ""
     while chosen1 != "000":
         if computer1 == "rock" and chosen1 == "scissors" or computer1 == "scissors" and chosen1 == "paper" or  computer1 == "paper" and chosen1 == "rock":
-            statement = "You lost"
+            statement = "❌❌You lost❌❌"
             loss += 1
             
         elif computer1 == chosen1:
-            statement = "Draw"
+            statement = "🇹 🇹 You tied 🇹 🇹 "
             draw += 1
             
         else:
-            statement = "You won"
+            statement = "✔️ ✔️ You won✔️ ✔️ "
             win += 1
             
         print(statement)
@@ -42,6 +70,38 @@ def compare(computer1, chosen1):
         return win, loss, draw
     
 # main routine
+print("Welcome to Rock, Paper, Scissors")
+print()
+print("""
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+""")
+
+# Paper
+print("""
+     _______
+---'    ____)____
+           ______)
+          _______)
+         _______)
+---.__________)
+""")
+
+# Scissors
+print("""
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+""")
+instructions("Have you played this game before? ")
+print()
 valid = ['rock', 'paper', 'scissors', '000']
 final_round = rounds()
 round_num = 0
@@ -75,7 +135,9 @@ while True:
 
     if chosen == "000":
         break
-
-print(f"Results: Win - {win}  Draw - {draw}  Loss - {loss}")
+win_percentage = win / round_num * 100
+loss_percentage = loss / round_num * 100
+draw_percentage = draw / round_num * 100
+print(f"Results: Win - {win} - Percentage - {win_percentage:.2f}% | Draw - {draw:.2f} - Percentage - {draw_percentage:.2f}% | Loss - {loss} - Percentage {loss_percentage}5")
 print()
 print("Thank you for playing")            
