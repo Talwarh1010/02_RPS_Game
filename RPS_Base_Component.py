@@ -1,4 +1,5 @@
 import random
+# Displays instructions for the user
 def instructions(question):
     
     while True:
@@ -27,6 +28,7 @@ def instructions(question):
         else:
             print(" Please enter yes or no ")
             
+# Validates the amount of rounds the user wants to play
 def rounds():
     
     while True:
@@ -39,6 +41,7 @@ def rounds():
             
         print(error)
 
+# Validates the user;s choice (R, P, S) 
 def user_choice(question, error , valid):
     loop = True
     while loop == True:
@@ -50,6 +53,7 @@ def user_choice(question, error , valid):
                 print(error)
                 print()
 
+# Compares the user's choice with computer's choice. Also tallies the result of the game
 def compare(computer1, chosen1):
     global win, loss, draw
     statement = ""
@@ -71,6 +75,8 @@ def compare(computer1, chosen1):
         return win, loss, draw
     
 # main routine
+
+# Ascii art 
 print("Welcome to Rock, Paper, Scissors")
 print()
 print("""
@@ -101,6 +107,8 @@ print("""
       (____)
 ---.__(___)
 """)
+
+# Checks if the user has played the game before
 instructions("Have you played this game before? ")
 print()
 valid = ['rock', 'paper', 'scissors', '000']
@@ -109,6 +117,8 @@ round_num = 0
 win = 0
 loss = 0
 draw = 0
+
+# Checks the type of round, and the amount of rounds and displays round number
 while True:
     if final_round == "":
         round_num += 1
@@ -137,9 +147,13 @@ while True:
 
     if chosen == "000":
         break
+
+# Converts the score to percentages
 win_percentage = round(win / round_num * 100, 2)
 loss_percentage = round(loss / round_num * 100, 2)
 draw_percentage = round(draw / round_num * 100, 2)
+
+# Prints overall results and regards the user
 print()
 print(f"Results: Win - {win} - Percentage - {win_percentage}% | Draw - {draw} - Percentage - {draw_percentage}% | Loss - {loss} - Percentage {loss_percentage}%")
 print()
