@@ -103,17 +103,24 @@ while True:
         round_num -= 1
         break
 
-# Converts the score to percentages
+# Converts the score to 
+
+win_percentage = 0
+draw_percentage = 0
+loss_percentage = 0 
+
+if win == 0:
+    win_percentage = 0
+elif draw == 0:
+    draw_percentage = 0
+elif loss == 0:
+    loss_percentage = 0
+else:
     win_percentage = round(win / round_num * 100, 2)
     loss_percentage = round(loss / round_num * 100, 2)
     draw_percentage = round(draw / round_num * 100, 2)
-    
-    if win == 0 :
-        win_percentage = 0
-    elif loss == 0 :
-        loss_percentage = 0
-    elif draw == 0:
-        draw_percentage = 0
+
+
 
 # Prints overall results and regards the user
 print()
