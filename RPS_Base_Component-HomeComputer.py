@@ -26,9 +26,7 @@ def user_choice(question, error, valid_list):
         for item in valid_list:
             if response == item or response == item[0]:
                 return item
-        else:
-            print(error)
-            print()
+        print(error)
 
 
 # main routine
